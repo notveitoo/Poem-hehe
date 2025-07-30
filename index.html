@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Poem Collection</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      font-family: Arial, sans-serif;
+      color: #fff;
+    }
+
+    /* Hero Section */
+    .intro-hero {
+      padding: 100px 20px;
+      text-align: center;
+      background-color: #000;
+    }
+
+    .intro-hero__content h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .intro-hero__content p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 20px auto;
+      color: #ccc;
+    }
+
+    .scroll-text {
+      margin-top: 30px;
+      font-size: 1rem;
+      color: #777;
+    }
+
+    /* Poem Sections */
+    .section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      padding: 60px 40px;
+      min-height: 100vh;
+      flex-wrap: wrap;
+      background-color: #000;
+      border-top: 1px solid #444;
+    }
+
+    .reverse {
+      flex-direction: row-reverse;
+    }
+
+    .image-container,
+    .text-container {
+      flex: 1;
+      min-width: 300px;
+      max-width: 500px;
+    }
+
+    .image-container img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+    }
+
+    .text-container h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+
+    .text-container p {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    @media (max-width: 768px) {
+      .section,
+      .reverse {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="intro-hero">
+    <div class="intro-hero__content">
+      <h1>Poem Collection</h1>
+      <p>These poems are personally written and dedicated to someone special.</p>
+      <p class="scroll-text">↓ Scroll down to read the poems ↓</p>
+    </div>
+  </section>
+
+  <!-- Poem Section 1 -->
+  <section class="section">
+    <div class="image-container">
+      <img src="./assets/1.jpg" alt="Poem 1" />
+    </div>
+    <div class="text-container">
+      <h2>Buzzed</h2>
+      <p>A five-year-old bee met a two-year-old flower.<br />
+      That beautiful flower was beside the bee.<br />
+      As a bee, you ought to glance at least once for hours—<br />
+      It’s a wonder he didn’t do anything, just let it be.</p>
+
+      <p>Time flies; he strayed away from it.<br />
+      Some bees did try to prey on the flower,<br />
+      Made the flower wrapped in cower,<br />
+      And that caused it to almost wilt.</p>
+
+      <p>Eventually, the flower was beside him again.<br />
+      Maybe this is where it all begins.<br />
+      As he gets closer to the flower,<br />
+      The bee keeps on growing fonder.</p>
+
+      <p>For five full years, he had no aim,<br />
+      No want, no wish, it was the same.<br />
+      But for some strange reason he couldn't explain,<br />
+      The bee yearns for that flower again.</p>
+    </div>
+  </section>
+
+  <!-- Poem Section 2 -->
+  <section class="section reverse">
+    <div class="image-container">
+      <img src="./assets/2.jpg" alt="Poem 2" />
+    </div>
+    <div class="text-container">
+      <h2>Sharmaine</h2>
+      <p>Somehow, you became the apple of my eye.<br />
+        Here I am, and I can't really deny.<br />
+        Astonished by your cute little smile,<br />
+        Reasoning just gone for a while.<br />
+        Moods are rising, floating high.<br />
+        Angels don’t only live in the sky—<br />
+        It was you, being here, that proved it’s not a lie.<br />
+        ow everything feels like a dream passing by.<br />
+        Even if I’m not around, on me you can rely.<br />
+        Shadows swayed with gentle light.</p>
+    </div>
+  </section>
+
+  <!-- Poem Section 3 -->
+  <section class="section">
+    <div class="image-container">
+      <img src="./assets/3.jpg" alt="Poem 3" />
+    </div>
+    <div class="text-container">
+      <h2>Faith</h2>
+      <p><strong>F</strong>ated to meet you somehow,<br />
+        <strong>A</strong>ll of this wasn't in my plan.<br />
+        <strong>I</strong>'m enjoying my own company,<br />
+        <strong>T</strong>hen you arrived suddenly.<br />
+        <strong>H</strong>aving you felt like I'm alive</p>
+    </div>
+  </section>
+
+  <!-- Poem Section 4 -->
+  <section class="section reverse">
+    <div class="image-container">
+      <img src="./assets/4.jpg" alt="Poem 4" />
+    </div>
+    <div class="text-container">
+      <h2>You</h2>
+      <p>Whatever version you are,<br />
+        You are still you—<br />
+        Sad, angry, happy,<br />
+        Kind, moody, cranky,<br />
+        Beautiful, cute, pretty,<br />
+        Often full of <em>eme</em>.<br />
+        <br />
+        It’s all you,<br />
+        And I love all of you.</p>
+    </div>
+  </section>
+
+  <!-- Poem Section 5 -->
+  <section class="section">
+    <div class="image-container">
+      <img src="./assets/5.jpg" alt="Poem 5" />
+    </div>
+    <div class="text-container">
+      <h2>She burns</h2>
+      <p>She’s like the sun—she’s burning hot,<br />
+        It was scorching, to the point that<br />
+        She burned my urge to be alone,<br />
+        To stay in silence on my own,<br />
+        To never love or care again,<br />
+        To believe “forever” isn’t certain.<br />
+        <br />
+        She became the light that brightens<br />
+        My five-year-long darkness.<br />
+        She burned my loneliness to ashes,<br />
+        Along with the feeling of coldness.</p>
+    </div>
+  </section>
+
+  <!-- Poem Section 6 -->
+  <section class="section reverse">
+    <div class="image-container">
+      <img src="./assets/6.jpg" alt="Poem 6" />
+    </div>
+    <div class="text-container">
+      <h2>The past with you</h2>
+      <p>Your past, it doesn’t matter, I know that’s true,<br />
+        But still, I wish those days were spent with me and you.<br />
+        The one beside you through each memory,<br />
+        The thought alone feels heavy inside me.<br />
+        <br />
+        I envy things I can't even control,<br />
+        But don’t you worry, it won't destroy us at all.<br />
+        It only proves how much I care—<br />
+        I just wish, in every moment, I was the one there.</p>
+    </div>
+  </section>
+
+</body>
+</html>
