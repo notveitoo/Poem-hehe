@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Poem Collection</title>
+  <title>Poem Hehe Collection</title>
+  <link rel="icon" type="image/jpeg" href="./assets/logo.jpg">
   <style>
     body {
       margin: 0;
@@ -48,7 +49,6 @@
       min-height: 100vh;
       flex-wrap: wrap;
       background-color: #000;
-      border-top: 1px solid #444;
     }
 
     .reverse {
@@ -86,6 +86,27 @@
         text-align: center;
       }
     }
+
+    /* Animated Flower Divider */
+    .section-divider {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 20px 0;
+      gap: 10px;
+    }
+
+    .section-divider span {
+      font-size: 1rem;
+      color: #888;
+      animation: spin 6s linear infinite;
+      display: inline-block;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
   </style>
 </head>
 <body>
@@ -94,10 +115,15 @@
   <section class="intro-hero">
     <div class="intro-hero__content">
       <h1>Poem Hehe Collection</h1>
-      <p>These poems and illustrations are personally written and dedicated to my beautiful girl Sharmaine Faith F. Vargas.</p>
+      <p>These poems and illustrations are personally written and drawn for my most beautiful girl: Sharmaine Faith F. Vargas.</p><br />
       <p class="scroll-text">Personal Blog by Vener C. Servito</p>
     </div>
   </section>
+
+  <!-- Divider -->
+  <div class="section-divider">
+    <span>✿</span>
+  </div>
 
   <!-- Poem Section 1 -->
   <section class="section">
@@ -127,6 +153,11 @@
       The bee yearns for that flower again.</p>
     </div>
   </section>
+  
+    <!-- Divider -->
+  <div class="section-divider">
+    <span>✿</span>
+  </div>
 
   <!-- Poem Section 2 -->
   <section class="section reverse">
@@ -147,6 +178,11 @@
     </div>
   </section>
 
+    <!-- Divider -->
+  <div class="section-divider">
+    <span>✿</span>
+  </div>
+
   <!-- Poem Section 3 -->
   <section class="section">
     <div class="image-container">
@@ -161,6 +197,11 @@
         <strong>H</strong>aving you felt like I'm alive</p>
     </div>
   </section>
+
+    <!-- Divider -->
+  <div class="section-divider">
+    <span>✿</span>
+  </div>
 
   <!-- Poem Section 4 -->
   <section class="section reverse">
@@ -180,6 +221,11 @@
         And I love all of you.</p>
     </div>
   </section>
+
+    <!-- Divider -->
+  <div class="section-divider">
+    <span>✿</span>
+  </div>
 
   <!-- Poem Section 5 -->
   <section class="section">
@@ -201,6 +247,11 @@
         Along with the feeling of coldness.</p>
     </div>
   </section>
+
+    <!-- Divider -->
+  <div class="section-divider">
+    <span>✿</span>
+  </div>
 
   <!-- Poem Section 6 -->
   <section class="section reverse">
