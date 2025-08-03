@@ -125,6 +125,22 @@
   letter-spacing: 1px;
 }
 
+.site-footer {
+  text-align: center;
+  padding: 40px 20px 20px 20px;
+  background-color: #000;
+  color: #666;
+  font-size: 0.9rem;
+  border-top: 1px solid #222;
+  margin-top: 60px;
+}
+
+.site-footer p {
+  margin: 6px 0;
+  line-height: 1.5;
+}
+
+
   </style>
 </head>
 
@@ -368,8 +384,17 @@
   updateCounter();
   setInterval(updateCounter, 1000); // update every second
 </script>
+<script>
+  document.getElementById("current-year").textContent = new Date().getFullYear();
+</script>
 
 
 </body>
+<footer class="site-footer">
+  <p>Made with ✿ and love by Vener C. Servito</p>
+  <p>Dedicated to Sharmaine Faith F. Vargas</p>
+  <p>&copy; 2024 – <span id="current-year"></span> | Poem Hehe Collection</p>
+</footer>
+
 </html>
 
