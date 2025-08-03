@@ -107,9 +107,30 @@
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
     }
+
+    .date-counter {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #aaa;
+  text-align: center;
+  padding: 10px 20px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background-color: #111;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 1px;
+}
+
   </style>
 </head>
+
 <body>
+
+  <div id="counter" class="date-counter"></div>
 
   <!-- Hero Section -->
   <section class="intro-hero">
@@ -119,6 +140,10 @@
       <p class="scroll-text">Personally written and illustrated by Vener C. Servito (Personal Poem Blog)</p>
     </div>
   </section>
+
+
+
+
 
   <!-- Divider -->
   <div class="section-divider">
@@ -271,7 +296,7 @@
         I just wish, in every moment, I was the one there.</p>
     </div>
   </section>
-  
+
       <!-- Divider -->
   <div class="section-divider">
     <span>✿</span>
@@ -291,11 +316,11 @@
         <br />
         You won't overthink things with me,<br />
         I assure you, you're my one and only.<br />
-        I'll be with you until our hair turns gray,<br />
+        I'll be with you untill our hair turns gray,<br />
         And make sure I'm your good karma, bae.</p>
     </div>
   </section>
-    
+  
       <!-- Divider -->
   <div class="section-divider">
     <span>✿</span>
@@ -317,9 +342,34 @@
     </div>
   </section>
 
+<script>
+  function updateCounter() {
+    const startDate = new Date("2024-03-06T00:00:00");
+    const now = new Date();
+    const diffMs = now - startDate;
+
+    const totalSeconds = Math.floor(diffMs / 1000);
+    const totalMinutes = Math.floor(totalSeconds / 60);
+    const totalHours = Math.floor(totalMinutes / 60);
+    const totalDays = Math.floor(totalHours / 24);
+    const totalYears = (totalDays / 365.25).toFixed(6);
+
+    const hours = totalHours % 24;
+    const minutes = totalMinutes % 60;
+    const seconds = totalSeconds % 60;
+
+    document.getElementById("counter").textContent =
+      `${totalDays} days (${totalYears} years) ` +
+      `${String(hours).padStart(2, '0')}:` +
+      `${String(minutes).padStart(2, '0')}:` +
+      `${String(seconds).padStart(2, '0')} since March 6, 2024`;
+  }
+
+  updateCounter();
+  setInterval(updateCounter, 1000); // update every second
+</script>
+
+
 </body>
 </html>
-
-
-
 
