@@ -358,11 +358,17 @@
     </div>
   </section>
 
+
 <script>
   function updateCounter() {
-    const startDate = new Date("2024-03-06T00:22:00");
+    // Start date: March 6, 2024 at 10:00 PM PHT
+    const startDate = new Date("2024-03-06T22:00:00+08:00"); // UTC+8 for PHT
+
+    // Get current time in PHT
     const now = new Date();
-    const diffMs = now - startDate;
+    const nowPHT = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Manila" }));
+
+    const diffMs = nowPHT - startDate;
 
     const totalSeconds = Math.floor(diffMs / 1000);
     const totalMinutes = Math.floor(totalSeconds / 60);
@@ -382,10 +388,11 @@
   }
 
   updateCounter();
-  setInterval(updateCounter, 1000); // update every second
+  setInterval(updateCounter, 1000);
 </script>
+
 <script>
-  document.getElementById("current-year").textContent = new Date().getFullYear();
+  document.getElementById("current-year").textContent = new Date().toLocaleString("en-US", { timeZone: "Asia/Manila", year: 'numeric' });
 </script>
 
 
@@ -397,6 +404,7 @@
 </footer>
 
 </html>
+
 
 
 
