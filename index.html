@@ -44,13 +44,13 @@
     }
 
     .intro-hero__content h1 {
-      font-size: 3.5rem;
+      font-size: 3.2rem;
       margin-bottom: 20px;
       color: #fff;
     }
 
     .intro-hero__content p {
-      font-size: 1.2rem;
+      font-size: 1rem;
       max-width: 700px;
       margin: 0 auto;
       color: #bbb;
@@ -88,26 +88,25 @@
 
     .image-container {
       flex: 1;
-      max-width: 500px;
+      max-width: 700px;
     }
 
-.image-container img {
-  width: 100%;
-  max-width: 500px; /* keeps them from going too wide */
-  height: auto; /* keeps natural proportions */
-  border-radius: 16px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-  transition: transform 0.4s ease;
-}
+    .image-container img {
+      width: 100%;
+      max-width: 500px; /* keeps them from going too wide */
+      height: auto; /* keeps natural proportions */
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+      transition: transform 0.4s ease;
+    }
 
-.image-container img:hover {
-  transform: scale(1.03);
-}
-
+    .image-container img:hover {
+      transform: scale(1.03);
+    }
 
     .text-container {
       flex: 1;
-      max-width: 700px;
+      max-width: 750px;
     }
 
     .text-container h2 {
@@ -116,7 +115,7 @@
     }
 
     .text-container p {
-      font-size: 0.79rem;
+      font-size: 0.85rem;
       line-height: 1.5;
       color: #ccc;
     }
@@ -517,12 +516,9 @@ function createPetal() {
   setTimeout(() => container.remove(), fallDuration * 1000);
 }
 
-setInterval(createPetal, 1100);
+setInterval(createPetal, 1200);
 </script>
 
 
 </body>
 </html>
-
-
-
