@@ -5,23 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Poem Hehe Collection</title>
   <link rel="icon" type="image/png" href="./assets/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      background-color: #000;
-      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, #000, #111);
+      font-family: 'Inter', sans-serif;
       color: #fff;
+    }
+
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Counter */
+    .date-counter {
+      margin: 30px auto;
+      font-size: 1.1rem;
+      color: #eee;
+      text-align: center;
+      padding: 15px 25px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(8px);
+      max-width: max-content;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      font-family: 'Courier New', monospace;
     }
 
     /* Hero Section */
     .intro-hero {
       padding: 100px 20px;
       text-align: center;
-      background-color: #000;
     }
 
     .intro-hero__content h1 {
-      font-size: 3rem;
+      font-size: 3.5rem;
       margin-bottom: 20px;
       color: #fff;
     }
@@ -29,14 +52,15 @@
     .intro-hero__content p {
       font-size: 1.2rem;
       max-width: 700px;
-      margin: 0 auto 20px auto;
-      color: #ccc;
+      margin: 0 auto;
+      color: #bbb;
     }
 
     .scroll-text {
-      margin-top: 30px;
-      font-size: 1rem;
-      color: #777;
+      margin-top: 20px;
+      font-size: 0.95rem;
+      color: #888;
+      letter-spacing: 0.5px;
     }
 
     /* Poem Sections */
@@ -48,42 +72,63 @@
       padding: 60px 40px;
       min-height: 100vh;
       flex-wrap: wrap;
-      background-color: #000;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease-out;
+    }
+
+    .section.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .reverse {
       flex-direction: row-reverse;
     }
 
-    .image-container,
-    .text-container {
+    .image-container {
       flex: 1;
-      min-width: 300px;
       max-width: 500px;
     }
 
-    .image-container img {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+.image-container img {
+  width: 100%;
+  max-width: 500px; /* keeps them from going too wide */
+  height: auto; /* keeps natural proportions */
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s ease;
+}
+
+.image-container img:hover {
+  transform: scale(1.03);
+}
+
+
+    .text-container {
+      flex: 1;
+      max-width: 500px;
     }
 
     .text-container h2 {
-      font-size: 2rem;
+      font-size: 2.3rem;
       margin-bottom: 15px;
-      color: #fff;
     }
 
     .text-container p {
-      font-size: 1rem;
+      font-size: 1.05rem;
+      line-height: 1.6;
       color: #ccc;
     }
 
     @media (max-width: 768px) {
-      .section,
-      .reverse {
+      .section, .reverse {
         flex-direction: column;
         text-align: center;
+      }
+      .image-container img {
+        max-width: 100%;
+        height: auto;
       }
     }
 
@@ -91,56 +136,71 @@
     .section-divider {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
+      gap: 8px;
       padding: 20px 0;
-      gap: 10px;
     }
 
     .section-divider span {
-      font-size: 1rem;
-      color: #888;
-      animation: spin 6s linear infinite;
-      display: inline-block;
+      font-size: 1.3rem;
+      color: #ffb6c1;
+      animation: spin 3.5s ease-in-out infinite;
     }
 
-    @keyframes spin {
+        @keyframes spin {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
     }
 
-    .date-counter {
-  margin-top: 20px;
-  font-size: 1.2rem;
-  color: #aaa;
-  text-align: center;
-  padding: 10px 20px;
-  border: 1px solid #333;
-  border-radius: 8px;
-  background-color: #111;
-  max-width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
-  font-family: 'Courier New', Courier, monospace;
-  letter-spacing: 1px;
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); opacity: 0.8; }
+      50% { transform: translateY(-5px); opacity: 1; }
+    }
+
+    /* Footer */
+    .site-footer {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #000;
+      border-top: 1px solid #222;
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    .site-footer p {
+      margin: 6px 0;
+    }
+
+    .petal-container {
+  position: fixed;
+  top: -20px;
+  pointer-events: none;
+  z-index: 9999;
+  animation: fall linear forwards;
 }
 
-.site-footer {
-  text-align: center;
-  padding: 40px 20px 20px 20px;
-  background-color: #000;
-  color: #666;
-  font-size: 0.9rem;
-  border-top: 1px solid #222;
-  margin-top: 60px;
+.petal {
+  display: inline-block;
+  animation: sway ease-in-out infinite;
 }
 
-.site-footer p {
-  margin: 6px 0;
-  line-height: 1.5;
+@keyframes fall {
+  0% {
+    transform: translateY(-20px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh);
+    opacity: 0.8;
+  }
 }
 
+@keyframes sway {
+  0%, 100% { transform: translateX(0px) rotate(0deg); }
+  50% { transform: translateX(15px) rotate(15deg); }
+}
 
+    
   </style>
 </head>
 
@@ -152,14 +212,10 @@
   <section class="intro-hero">
     <div class="intro-hero__content">
       <h1>Poem Hehe Collection</h1>
-      <p>These poems and illustrations are dedicated to my beautiful girl, Sharmaine Faith F. Vargas.</p><br />
+      <p>These poems and illustrations are dedicated to my beautiful girl, Sharmaine Faith F. Vargas.</p>
       <p class="scroll-text">Personally written and illustrated by V (Personal Poem Blog)</p>
     </div>
   </section>
-
-
-
-
 
   <!-- Divider -->
   <div class="section-divider">
@@ -357,8 +413,8 @@
         I’ll always be near, forever your Vener, your own.</p>
     </div>
   </section>
-  
-          <!-- Divider -->
+
+        <!-- Divider -->
   <div class="section-divider">
     <span>✿</span>
   </div>
@@ -377,7 +433,7 @@
         <br />
         In my life, I had only experienced rain and summer,<br />
         And for so long, it had been only winter.<br />
-        Then she became the daisy of my life,<br />
+        Then she became the dais of my life,<br />
         And brought me the springtime.<br />
         <br />
         Falling into her was inevitable,<br />
@@ -387,56 +443,83 @@
     </div>
   </section>
 
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>Made with ✿ and love by V</p>
+    <p>Dedicated to Peyt</p>
+    <p>&copy; 2025 – <span id="current-year"></span> | Poem Hehe Collection</p>
+  </footer>
 
 <script>
+  // Counter Script
   function updateCounter() {
-    // Start date: March 6, 2024 at 10:00 PM PHT
-    const startDate = new Date("2024-03-06T22:00:00+08:00"); // UTC+8 for PHT
-
-    // Get current time in PHT
+    const startDate = new Date("2024-03-06T22:00:00+08:00");
     const now = new Date();
     const nowPHT = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Manila" }));
-
     const diffMs = nowPHT - startDate;
-
     const totalSeconds = Math.floor(diffMs / 1000);
     const totalMinutes = Math.floor(totalSeconds / 60);
     const totalHours = Math.floor(totalMinutes / 60);
     const totalDays = Math.floor(totalHours / 24);
     const totalYears = (totalDays / 365.25).toFixed(6);
-
     const hours = totalHours % 24;
     const minutes = totalMinutes % 60;
     const seconds = totalSeconds % 60;
 
     document.getElementById("counter").textContent =
-      `${totalDays} days (${totalYears} years) ` +
-      `${String(hours).padStart(2, '0')}:` +
-      `${String(minutes).padStart(2, '0')}:` +
-      `${String(seconds).padStart(2, '0')} since March 6, 2024`;
+      `${totalDays} days (${totalYears} years) ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')} since March 6, 2024`;
   }
-
   updateCounter();
   setInterval(updateCounter, 1000);
-</script>
 
+  document.getElementById("current-year").textContent =
+    new Date().toLocaleString("en-US", { timeZone: "Asia/Manila", year: 'numeric' });
+
+  // Fade-in animation on scroll
+  const sections = document.querySelectorAll(".section");
+  const revealOnScroll = () => {
+    const triggerBottom = window.innerHeight * 0.85;
+    sections.forEach(section => {
+      const boxTop = section.getBoundingClientRect().top;
+      if (boxTop < triggerBottom) {
+        section.classList.add("show");
+      }
+    });
+  };
+  window.addEventListener("scroll", revealOnScroll);
+  revealOnScroll();
+</script>
 <script>
-  document.getElementById("current-year").textContent = new Date().toLocaleString("en-US", { timeZone: "Asia/Manila", year: 'numeric' });
+const petalShapes = ['✿', '❀', '❁', '❃']; 
+const petalColors = ['#FFC0CB', '#FFB6C1', '#FF69B4', '#F8BBD0'];
+
+function createPetal() {
+  const container = document.createElement('div');
+  container.classList.add('petal-container');
+  container.style.left = Math.random() * window.innerWidth + 'px';
+
+  const petal = document.createElement('div');
+  petal.classList.add('petal');
+  petal.textContent = petalShapes[Math.floor(Math.random() * petalShapes.length)];
+  petal.style.color = petalColors[Math.floor(Math.random() * petalColors.length)];
+
+  const size = 18 + Math.random() * 12;
+  petal.style.fontSize = size + 'px';
+
+  const fallDuration = 6 + Math.random() * 5; // 6–11s
+  const swayDuration = 3 + Math.random() * 2; // 3–5s
+  container.style.animationDuration = `${fallDuration}s`;
+  petal.style.animationDuration = `${swayDuration}s`;
+
+  container.appendChild(petal);
+  document.body.appendChild(container);
+
+  setTimeout(() => container.remove(), fallDuration * 1000);
+}
+
+setInterval(createPetal, 500);
 </script>
 
 
 </body>
-<footer class="site-footer">
-  <p>Made with ✿ and love by V</p>
-  <p>Dedicated to Peyt</p>
-  <p>&copy; 2025 – <span id="current-year"></span> | Poem Hehe Collection</p>
-</footer>
-
 </html>
-
-
-
-
-
-
-
