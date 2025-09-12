@@ -26,15 +26,26 @@
     .date-counter {
       margin: 30px auto;
       font-size: 1rem;
-      color: #eee;
+      color: #fff;
       text-align: center;
-      padding: 15px 25px;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(8px);
+      padding: 14px 26px;
+      border-radius: 14px;
+      background: rgba(0, 0, 0, 0.4); /* darker glass for contrast */
+      backdrop-filter: blur(10px) saturate(180%);
+      -webkit-backdrop-filter: blur(10px) saturate(180%);
       max-width: max-content;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
       font-family: 'Courier New', monospace;
+      letter-spacing: 1px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5),
+                  inset 0 0 8px rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      animation: counterPulse 4s infinite ease-in-out;
+    }
+
+    /* Subtle breathing glow */
+    @keyframes counterPulse {
+      0%, 100% { text-shadow: 0 0 6px rgba(0, 255, 200, 0.6); }
+      50% { text-shadow: 0 0 14px rgba(0, 255, 200, 0.9); }
     }
 
     /* Hero Section */
@@ -135,8 +146,8 @@
     .section-divider {
       display: flex;
       justify-content: center;
-      gap: 8px;
-      padding: 20px 0;
+      gap: 5px;
+      padding: 10px 0;
     }
 
     .section-divider span {
@@ -145,7 +156,7 @@
       animation: spin 3.5s ease-in-out infinite;
     }
 
-        @keyframes spin {
+    @keyframes spin {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
     }
@@ -171,148 +182,216 @@
     }
 
     .petal-container {
-  position: fixed;
-  top: -20px;
-  pointer-events: none;
-  z-index: 9999;
-  animation: fall linear forwards;
-}
+      position: fixed;
+      top: -20px;
+      pointer-events: none;
+      z-index: 9999;
+      animation: fall linear forwards;
+    }
 
-.petal {
-  display: inline-block;
-  animation: sway ease-in-out infinite;
-}
+    .petal {
+      display: inline-block;
+      animation: sway ease-in-out infinite;
+    }
 
-@keyframes fall {
-  0% {
-    transform: translateY(-20px);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(110vh);
-    opacity: 0.8;
-  }
-}
+    @keyframes fall {
+      0% {
+        transform: translateY(-20px);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh);
+        opacity: 0.8;
+      }
+    }
 
-@keyframes sway {
-  0%, 100% { transform: translateX(0px) rotate(0deg); }
-  50% { transform: translateX(15px) rotate(15deg); }
-}
+    @keyframes sway {
+      0%, 100% { transform: translateX(0px) rotate(0deg); }
+      50% { transform: translateX(15px) rotate(15deg); }
+    }
 
-.spotify-feature {
-  margin: 2rem auto;
-  max-width: 800px;
-  text-align: center;
-  padding: 1.5rem;
-  border-radius: 16px;
-  background: #121212;
-  color: #fff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-}
+    .spotify-feature {
+      margin: 2rem auto;
+      max-width: 800px;
+      text-align: center;
+      padding: 1.5rem;
+      border-radius: 16px;
+      background: #121212;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
 
-.spotify-feature h2 {
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
-}
+    .spotify-feature h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
 
-.spotify-feature p {
-  margin-bottom: 1rem;
-  font-size: 1rem;
-  color: #b3b3b3;
-}
-/* Table of Contents */
-.toc {
-  position: relative;
-  margin: 40px auto;
-  max-width: 800px;
-  padding: 25px 30px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(10px);
-  border-radius: 18px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    .spotify-feature p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      color: #b3b3b3;
+    }
+    /* Table of Contents */
+    .toc {
+      position: relative;
+      margin: 40px auto;
+      max-width: 800px;
+      padding: 25px 30px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(10px);
+      border-radius: 18px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-.toc:hover {
-  transform: scale(1.02);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-}
+    .toc:hover {
+      transform: scale(1.02);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    }
 
-.toc h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  text-align: center;
-  color: #ff99c8;
-  position: relative;
-}
+    .toc h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #ff99c8;
+      position: relative;
+    }
 
-.toc h2::after {
-  content: "";
-  position: absolute;
-  right: -25px;
-  font-size: 1.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #ffb6c1;
-}
+    .toc h2::after {
+      content: "";
+      position: absolute;
+      right: -25px;
+      font-size: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #ffb6c1;
+    }
 
-.toc ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 12px;
-}
+    .toc ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+    }
 
-.toc li {
-  background: rgba(255,255,255,0.05);
-  border-radius: 12px;
-  padding: 10px 15px;
-  transition: background 0.3s ease, transform 0.3s ease;
-}
+    .toc li {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 10px 15px;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
 
-.toc li:hover {
-  background: rgba(255,182,193,0.15);
-  transform: translateX(5px);
-}
+    .toc li:hover {
+      background: rgba(255,182,193,0.15);
+      transform: translateX(5px);
+    }
 
-.toc a {
-  text-decoration: none;
-  color: #eee;
-  font-size: 0.95rem;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: color 0.3s ease;
-}
+    .toc a {
+      text-decoration: none;
+      color: #eee;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.3s ease;
+    }
 
-.toc a:hover {
-  color: #ff69b4;
-}
+    .toc a:hover {
+      color: #ff69b4;
+    }
 
-.toc a::before {
-  content: "✿";
-  font-size: 0.9rem;
-  color: #ffb6c1;
-  transition: transform 0.3s ease;
-}
+    .toc a::before {
+      content: "✿";
+      font-size: 0.9rem;
+      color: #ffb6c1;
+      transition: transform 0.3s ease;
+    }
 
-.toc li:hover a::before {
-  transform: rotate(20deg) scale(1.2);
-}
+    .toc li:hover a::before {
+      transform: rotate(20deg) scale(1.2);
+    }
 
+    #monthsary {
+      display: none; /* hidden by default */
+      font-size: 1.8rem;
+      font-weight: 700;
+      text-align: center;
+      margin: 25px auto;
+      padding: 18px 28px;
+      border-radius: 16px;
+      background: rgba(255, 182, 193, 0.15); /* glassy pink */
+      backdrop-filter: blur(12px) saturate(180%);
+      -webkit-backdrop-filter: blur(12px) saturate(180%);
+      color: #fff;
+      letter-spacing: 1px;
+      text-shadow: 0 0 8px rgba(255, 150, 200, 0.9);
+      box-shadow: 0 8px 30px rgba(255, 100, 150, 0.3),
+                  inset 0 0 12px rgba(255, 200, 220, 0.2);
+      border: 1px solid rgba(255, 200, 220, 0.4);
+      max-width: max-content;
+      animation: fadeInUp 1s ease, glowPulse 3s infinite ease-in-out;
+    }
 
+    /* Smooth entrance */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px) scale(0.95); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Subtle glowing effect */
+    @keyframes glowPulse {
+      0%, 100% { box-shadow: 0 0 20px rgba(255, 150, 200, 0.6); }
+      50% { box-shadow: 0 0 40px rgba(255, 180, 220, 0.9); }
+    }
     
-</style>
+
+    .back-to-toc {
+      position: fixed;
+      bottom: 18px;
+      right: 18px;
+      width: 32px;
+      height: 32px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 0.9rem; /* smaller emoji */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      background: rgba(117, 96, 96, 0.85); /* modern glass pink */
+      backdrop-filter: blur(5px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      opacity: 0;
+      transform: translateY(8px);
+      pointer-events: none;
+      transition: all 0.25s ease;
+      z-index: 1000;
+    }
+
+    .back-to-toc.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .back-to-toc:hover {
+      background: rgba(255, 105, 180, 1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transform: translateY(-1px) scale(1.05);
+    }
+
+  </style>
 </head>
 
 <body>
 
-  <div id="counter" class="date-counter"></div>
-
+  <div id="monthsary" class="monthsary-counter"></div>
+  
   <!-- Hero Section -->
   <section class="intro-hero">
     <div class="intro-hero__content">
@@ -322,24 +401,26 @@
     </div>
   </section>
     <!-- Table of Contents -->
-<nav class="toc">
-  <h2>Table of Contents</h2>
-  <ul>
-    <li><a href="#poem1">Buzzed</a></li>
-    <li><a href="#poem2">Sharmaine</a></li>
-    <li><a href="#poem3">Faith</a></li>
-    <li><a href="#poem4">You</a></li>
-    <li><a href="#poem5">She burns</a></li>
-    <li><a href="#poem6">The past with you</a></li>
-    <li><a href="#poem7">Good karma</a></li>
-    <li><a href="#poem8">Always be near</a></li>
-    <li><a href="#poem9">Spring Flower</a></li>
-    <li><a href="#poem10">Nudols</a></li>
-    <li><a href="#poem11">Happiest poet</a></li>
-    <li><a href="#poem12">Four-leaf clover</a></li>
-    <li><a href="#spotify-section">🎵 Playlist Hehe</a></li>
-  </ul>
-</nav>
+  <nav class="toc">
+    <h2>Table of Contents</h2>
+    <ul>
+      <li><a href="#poem1">Buzzed</a></li>
+      <li><a href="#poem2">Sharmaine</a></li>
+      <li><a href="#poem3">Faith</a></li>
+      <li><a href="#poem4">You</a></li>
+      <li><a href="#poem5">She burns</a></li>
+      <li><a href="#poem6">The past with you</a></li>
+      <li><a href="#poem7">Good karma</a></li>
+      <li><a href="#poem8">Always be near</a></li>
+      <li><a href="#poem9">Spring Flower</a></li>
+      <li><a href="#poem10">Nudols</a></li>
+      <li><a href="#poem11">Happiest poet</a></li>
+      <li><a href="#poem12">Four-leaf clover</a></li>
+      <li><a href="#poem13">Peyt</a></li>
+      <li><a href="#poem14">Tree of love</a></li>
+      <li><a href="#spotify-section">🎵 Playlist Hehe</a></li>
+    </ul>
+  </nav>
 
   <!-- Divider -->
   <div class="section-divider">
@@ -360,17 +441,17 @@
 
       <p>Time flies; he strayed away from it.<br />
       Some bees did try to prey on the flower,<br />
-      Made the flower wrapped in cower,<br />
+      Made the flower wrapped in a cower,<br />
       And that caused it to almost wilt.</p>
 
       <p>Eventually, the flower was beside him again.<br />
-      Maybe this is where it all begins.<br />
+      Pehaps this is where it all begins.<br />
       As he gets closer to the flower,<br />
       The bee keeps on growing fonder.</p>
 
       <p>For five full years, he had no aim,<br />
       No want, no wish, it was the same.<br />
-      But for some strange reason he couldn't explain,<br />
+      But for some strange reason, he couldn't explain,<br />
       The bee yearns for that flower again.</p>
     </div>
   </section>
@@ -390,7 +471,7 @@
       <p><strong>S</strong>omehow, you became the apple of my eye.<br />
        <strong>H</strong>ere I am, and I can't really deny.<br />
         <strong>A</strong>stonished by your cute little smile,<br />
-        <strong>R</strong>easoning just gone for a while.<br />
+        <strong>R</strong>easoning has just gone for a while.<br />
         <strong>M</strong>oods are rising, floating high.<br />
         <strong>A</strong>ngels don’t only live in the sky—<br />
         <strong>I</strong>t was you, being here, that proved it’s not a lie.<br />
@@ -415,7 +496,7 @@
         <strong>A</strong>ll of this wasn't in my plan.<br />
         <strong>I</strong>'m enjoying my own company,<br />
         <strong>T</strong>hen you arrived suddenly.<br />
-        <strong>H</strong>aving you felt like I'm alive</p>
+        <strong>H</strong>aving you feel like I'm alive</p>
     </div>
   </section>
 
@@ -489,7 +570,7 @@
         I envy things I can't even control,<br />
         But don’t you worry, it won't destroy us at all.<br />
         It only proves how much I care—<br />
-        I just wish, in every moment, I was the one there.</p>
+        I just wish, in every moment, I were the one there.</p>
     </div>
   </section>
 
@@ -505,14 +586,14 @@
     </div>
     <div class="text-container">
       <h2>Good karma</h2>
-      <p>I Promise, every time, to do my best,<br />
+      <p>I promise, every time, to do my best,<br />
         To be someone where you can rest,<br />
         And do everything to pass your test,<br />
         I know this is for both our interest.<br />
         <br />
         You won't overthink things with me,<br />
         I assure you, you're my one and only.<br />
-        I'll be with you untill our hair turns gray,<br />
+        I'll be with you until our hair turns gray,<br />
         And make sure I'm your <em>good karma</em>, bae.</p>
     </div>
   </section>
@@ -529,7 +610,7 @@
     </div>
     <div class="text-container">
       <h2>Always be near</h2>
-      <p>What makes people hold on to their relationship?<br />
+      <p>What makes people hold on to their relationships?<br />
         Does faith make you stay when things turn to shit?<br />
         For me, I know I'll stay because of Faith.<br />
         So baby, be confident in me always.<br />
@@ -585,7 +666,7 @@
         But I can’t, for I yearn for <em>yours</em> so dearly.<br />
         <br />
         So, my dear, let your love devour me,<br />
-        I'll gladly fall to your endless void for eternity.<br />
+        I'll gladly fall into your endless void for eternity.<br />
         I’ll be both your light and your darkness,<br />
         And to every problem, be your fortress.<br /></p>
     </div>
@@ -604,8 +685,8 @@
     <div class="text-container">
       <h2>Happiest poet</h2>
         <p>I once bid farewell to poetry,<br />
-        Felt the end of it was guaranteed.<br />
-        My mind held no idea, it was empty,<br />
+        Felt that the end was guaranteed.<br />
+        My mind held no idea; it was empty,<br />
         Like stagnant water, still indeed.<br />
         <br />
         But now the ideas keep on flowing,<br />
@@ -648,7 +729,7 @@
     </div>
   </section>
 
-    <!-- Divider -->
+  <!-- Divider -->
   <div class="section-divider">
     <span>✿</span>
   </div>
@@ -677,6 +758,37 @@
     <span>✿</span>
   </div>
 
+    <!-- Poem Section 14 -->
+  <section id="poem14" class="section reverse">
+    <div class="image-container">
+      <img src="./assets/14.jpg" alt="Poem 14" />
+    </div>
+    <div class="text-container">
+      <h2>Tree of love</h2>
+      <p>Funny how I was mesmerized,<br />
+        The moment I saw you play with kids.<br />
+        It was then that I began to doubt,<br />
+        That something had stirred within my core.<br />
+        <br />
+        Later on, I felt and just realized,<br />
+        I even thought it would pass—God forbid.<br />
+        But the tree of love slowly began to sprout,<br />
+        Now I want it to grow even more.<br />
+        <br />
+        Even now, I feel surprised.<br />
+        That we're getting off the grid,<br />
+        And with you, I want to go all out;<br />
+        I would stay with you, I swore.<br /></p>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="section-divider">
+    <span>✿</span>
+  </div>
+  
+  <div id="counter" class="date-counter"></div>
+
   <!-- Spotify Playlist Section -->
   <section id="spotify-section" class="spotify-feature">
     <h2>🎵 Playlist Hehe</h2>
@@ -696,76 +808,154 @@
     <p>&copy; 2025 – <span id="current-year"></span> | Poem Hehe Collection</p>
   </footer>
 
-<script>
-  // Counter Script
-  function updateCounter() {
-    const startDate = new Date("2024-03-06T22:00:00+08:00");
-    const now = new Date();
-    const nowPHT = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Manila" }));
-    const diffMs = nowPHT - startDate;
-    const totalSeconds = Math.floor(diffMs / 1000);
-    const totalMinutes = Math.floor(totalSeconds / 60);
-    const totalHours = Math.floor(totalMinutes / 60);
-    const totalDays = Math.floor(totalHours / 24);
-    const totalYears = (totalDays / 365.25).toFixed(6);
-    const hours = totalHours % 24;
-    const minutes = totalMinutes % 60;
-    const seconds = totalSeconds % 60;
+  <!-- Back to TOC Button -->
+  <button id="backToToc" class="back-to-toc">↑</button>
 
-    document.getElementById("counter").textContent =
-      `${totalDays} days (${totalYears} years) ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')} since first encounter`;
-  }
-  updateCounter();
-  setInterval(updateCounter, 1000);
 
-  document.getElementById("current-year").textContent =
-    new Date().toLocaleString("en-US", { timeZone: "Asia/Manila", year: 'numeric' });
+  <script>
+    // Counter Script
+    function updateCounter() {
+      const startDate = new Date("2024-03-06T22:00:00+08:00");
+      const now = new Date();
+      const nowPHT = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Manila" }));
+      const diffMs = nowPHT - startDate;
+      const totalSeconds = Math.floor(diffMs / 1000);
+      const totalMinutes = Math.floor(totalSeconds / 60);
+      const totalHours = Math.floor(totalMinutes / 60);
+      const totalDays = Math.floor(totalHours / 24);
+      const totalYears = (totalDays / 365.25).toFixed(6);
+      const hours = totalHours % 24;
+      const minutes = totalMinutes % 60;
+      const seconds = totalSeconds % 60;
 
-  // Fade-in animation on scroll
-  const sections = document.querySelectorAll(".section");
-  const revealOnScroll = () => {
-    const triggerBottom = window.innerHeight * 0.85;
-    sections.forEach(section => {
-      const boxTop = section.getBoundingClientRect().top;
-      if (boxTop < triggerBottom) {
-        section.classList.add("show");
+      document.getElementById("counter").textContent =
+        `${totalDays} days (${totalYears} years) ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')} since first encounter`;
+    }
+    updateCounter();
+    setInterval(updateCounter, 1000);
+
+    document.getElementById("current-year").textContent =
+      new Date().toLocaleString("en-US", { timeZone: "Asia/Manila", year: 'numeric' });
+
+    // Fade-in animation on scroll
+    const sections = document.querySelectorAll(".section");
+    const revealOnScroll = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const boxTop = section.getBoundingClientRect().top;
+        if (boxTop < triggerBottom) {
+          section.classList.add("show");
+        }
+      });
+    };
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
+  </script>
+  <script>
+    const petalShapes = ['✿', '❀', '❁', '❃']; 
+    const petalColors = ['#FFC0CB', '#FFB6C1', '#FF69B4', '#F8BBD0'];
+
+    function createPetal() {
+      const container = document.createElement('div');
+      container.classList.add('petal-container');
+      container.style.left = Math.random() * window.innerWidth + 'px';
+
+      const petal = document.createElement('div');
+      petal.classList.add('petal');
+      petal.textContent = petalShapes[Math.floor(Math.random() * petalShapes.length)];
+      petal.style.color = petalColors[Math.floor(Math.random() * petalColors.length)];
+
+      const size = 18 + Math.random() * 12;
+      petal.style.fontSize = size + 'px';
+
+      const fallDuration = 6 + Math.random() * 5; // 6–11s
+      const swayDuration = 3 + Math.random() * 2; // 3–5s
+      container.style.animationDuration = `${fallDuration}s`;
+      petal.style.animationDuration = `${swayDuration}s`;
+
+      container.appendChild(petal);
+      document.body.appendChild(container);
+
+      setTimeout(() => container.remove(), fallDuration * 1000);
+    }
+
+    setInterval(createPetal, 1150);
+  </script>
+
+  <script>
+    const backToToc = document.getElementById("backToToc");
+    const toc = document.querySelector(".toc");
+    const hero = document.querySelector(".intro-hero");
+
+    function toggleBackToToc() {
+      const heroBottom = hero.getBoundingClientRect().bottom;
+      const tocBottom = toc.getBoundingClientRect().bottom;
+
+      if (heroBottom <= 0 && tocBottom <= 0) {
+        backToToc.classList.add("show");
+      } else {
+        backToToc.classList.remove("show");
       }
+    }
+
+    window.addEventListener("scroll", toggleBackToToc);
+
+    backToToc.addEventListener("click", () => {
+      toc.scrollIntoView({ behavior: "smooth" });
     });
-  };
-  window.addEventListener("scroll", revealOnScroll);
-  revealOnScroll();
-</script>
-<script>
-const petalShapes = ['✿', '❀', '❁', '❃']; 
-const petalColors = ['#FFC0CB', '#FFB6C1', '#FF69B4', '#F8BBD0'];
+  </script>
 
-function createPetal() {
-  const container = document.createElement('div');
-  container.classList.add('petal-container');
-  container.style.left = Math.random() * window.innerWidth + 'px';
 
-  const petal = document.createElement('div');
-  petal.classList.add('petal');
-  petal.textContent = petalShapes[Math.floor(Math.random() * petalShapes.length)];
-  petal.style.color = petalColors[Math.floor(Math.random() * petalColors.length)];
+  <script>
+    function updateMonthsary() {
+      const startDate = new Date("2025-10-05T00:00:00+08:00"); // Start date
+      const now = new Date();
+      const nowPHT = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Manila" }));
 
-  const size = 18 + Math.random() * 12;
-  petal.style.fontSize = size + 'px';
+      let months =
+        (nowPHT.getFullYear() - startDate.getFullYear()) * 12 +
+        (nowPHT.getMonth() - startDate.getMonth());
 
-  const fallDuration = 6 + Math.random() * 5; // 6–11s
-  const swayDuration = 3 + Math.random() * 2; // 3–5s
-  container.style.animationDuration = `${fallDuration}s`;
-  petal.style.animationDuration = `${swayDuration}s`;
+      if (nowPHT.getDate() < 5) {
+        months--; // not yet reached this month’s 5th day
+      }
 
-  container.appendChild(petal);
-  document.body.appendChild(container);
+      const years = Math.floor(months / 12);
+      const monthsaryDiv = document.getElementById("monthsary");
 
-  setTimeout(() => container.remove(), fallDuration * 1000);
-}
+      // Function to get ordinal suffix (1st, 2nd, 3rd, 4th…)
+      function getOrdinal(n) {
+        if (n % 100 >= 11 && n % 100 <= 13) return n + "th";
+        switch (n % 10) {
+          case 1: return n + "st";
+          case 2: return n + "nd";
+          case 3: return n + "rd";
+          default: return n + "th";
+        }
+      }
 
-setInterval(createPetal, 1150);
-</script>
+      // Hide by default
+      monthsaryDiv.style.display = "none";
+      monthsaryDiv.textContent = "";
+
+      // Show only on the 5th
+      if (nowPHT.getDate() === 5) {
+        if (months > 0) {
+          if (months % 12 === 0 && years > 0) {
+            monthsaryDiv.textContent = `Happy ${getOrdinal(years)} anniversary!`;
+          } else {
+            monthsaryDiv.textContent = `Happy ${getOrdinal(months)} monthsary!`;
+          }
+        } else if (months === 0) {
+          monthsaryDiv.textContent = `Happy 1st monthsary!`;
+        }
+        monthsaryDiv.style.display = "block"; // show when it's monthsary
+      }
+    }
+
+    //updateMonthsary();
+    //setInterval(updateMonthsary, 1000 * 60 * 60); // refresh every hour
+  </script>
 
 </body>
 </html>
-
