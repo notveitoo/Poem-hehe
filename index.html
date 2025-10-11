@@ -420,11 +420,14 @@
       <li><a href="#poem13">Peyt</a></li>
       <li><a href="#poem14">Tree of love</a></li>
       <li><a href="#poem15">Envy</a></li>
-      <li><a href="#poem16">BBQ Fries</a></li>
+      <li><a href="#poem16">Fries</a></li>
       <li><a href="#poem17">10-05</a></li>
       <li><a href="#poem18">Her Hates</a></li>
       <li><a href="#poem19">My Muse</a></li>
       <li><a href="#poem20">His Hates</a></li>
+      <li><a href="#poem21">I love us by Vener</a></li>
+      <li><a href="#poem22">I love us by Peyt</a></li>
+      <li><a href="#poem23">The Trajectory</a></li>
       <li><a href="#spotify-section">🎵 Playlist Hehe</a></li>
     </ul>
   </nav>
@@ -857,7 +860,7 @@
         I’m not really fond of my own birthday—<br />
         Things have shifted; it won’t happen without you.<br />
         <br />
-        Now I’m being reborn,<br />
+        Now I’m being reformed,<br />
         And I’ll be better with each dawn.<br />
         <br />
         I’ll be happier anticipating this day;<br />
@@ -934,6 +937,95 @@
     </div>
   </section>
 
+    <!-- Divider -->
+  <div class="section-divider">
+    <span>✿</span>
+  </div>
+
+  <!-- Poem Section 21 -->
+  <section id="poem21" class="section">
+    <div class="image-container">
+      <img src="./assets/21.jpg" alt="Poem 21" />
+    </div>
+    <div class="text-container">
+      <h2>I love us by Vener</h2>
+        <p>Dear <em>Peyt</em>,<br /><br />
+          Because I love you,<br />
+          I can be miserable with you,<br />
+          As I will be happier with you.<br />
+          <br />
+          Because I love you,<br />
+          I can die for you,<br />
+          As I will live just for you.<br />
+          <br />
+          Because I love you,<br />
+          I can endure the bitterness in life,<br />
+          As I will enjoy the sweetest with you.<br />
+          <br />
+          Because I love you,<br />
+          I will do anything for us —<br />
+          And that’s because I love us.<br />
+          <br />
+          With all my love, <em>Vener.</em></p>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="section-divider">
+    <span>✿</span>
+  </div>
+
+  <!-- Poem Section 22 -->
+  <section id="poem22" class="section reverse">
+    <div class="image-container">
+      <img src="./assets/22.jpg" alt="Poem 22" />
+    </div>
+    <div class="text-container">
+      <h2>I love us by Peyt</h2>
+        <p>Dear <em>Vener</em>,<br /><br />
+          Because I love you,<br />
+          I can be troubled,<br />
+          As I will always find calm in you.<br />
+          <br />
+          Because I love you,<br />
+          I can be lost,<br />
+          As I will know I will be found.<br />
+          <br />
+          Because I love you,<br />
+          I can bear being apart from you,<br />
+          As I will always know that we will be together, forever.<br />
+          <br />
+          Because I love you,<br />
+          I will do anything for us —<br />
+          And that’s because I love us.<br />
+          <br />
+          With all my love, <em>Peyt.</em></p>
+    </div>
+  </section>
+
+      <!-- Divider -->
+  <div class="section-divider">
+    <span>✿</span>
+  </div>
+
+  <!-- Poem Section 23 -->
+  <section id="poem23" class="section">
+    <div class="image-container">
+      <img src="./assets/23.jpg" alt="Poem 23" />
+    </div>
+    <div class="text-container">
+      <h2>The Trajectory</h2>
+        <p>There was a time I avoided affection,<br />
+          Till you made me change my trajectory.<br />
+          You, who always matched my energy —<br />
+          Now I crave your attention.<br />
+          <br />
+          Loving you is so fulfilling,<br />
+          As you appreciate the love I give.<br />
+          I'll always love you, don't misgive,<br />
+          I'm willing to give you everything.</p>
+    </div>
+  </section>
 
   <!-- Divider -->
   <div class="section-divider">
@@ -967,62 +1059,103 @@
 
 
   <script>
-    /* ------------------------------
-      ⏳ Counter: First Encounter
-    ------------------------------ */
-    function updateCounter() {
-      const startDate = new Date("2024-03-06T22:00:00+08:00");
-      const now = new Date();
-      const nowPHT = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Manila" }));
+/* ------------------------------
+   ⏳ Counter: First Encounter
+------------------------------ */
+function updateCounter() {
+  const startDate = new Date("2024-03-06T22:00:00+08:00");
+  const now = new Date();
+  const nowPHT = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Manila" }));
 
-      const diffMs = nowPHT - startDate;
-      const totalSeconds = Math.floor(diffMs / 1000);
-      const totalMinutes = Math.floor(totalSeconds / 60);
-      const totalHours = Math.floor(totalMinutes / 60);
-      const totalDays = Math.floor(totalHours / 24);
-      const totalYears = (totalDays / 365.25).toFixed(6);
+  const diffMs = nowPHT - startDate;
+  const totalSeconds = Math.floor(diffMs / 1000);
+  const totalMinutes = Math.floor(totalSeconds / 60);
+  const totalHours = Math.floor(totalMinutes / 60);
+  const totalDays = Math.floor(totalHours / 24);
 
-      const hours = totalHours % 24;
-      const minutes = totalMinutes % 60;
-      const seconds = totalSeconds % 60;
+  // Calculate years, months, and days precisely
+  let years = nowPHT.getFullYear() - startDate.getFullYear();
+  let months = nowPHT.getMonth() - startDate.getMonth();
+  let days = nowPHT.getDate() - startDate.getDate();
 
-      document.getElementById("counter").textContent =
-        `${totalDays} days (${totalYears} years) ` +
-        `${String(hours).padStart(2, '0')}:` +
-        `${String(minutes).padStart(2, '0')}:` +
-        `${String(seconds).padStart(2, '0')} since first encounter`;
-    }
-    updateCounter();
-    setInterval(updateCounter, 1000);
+  if (days < 0) {
+    months--;
+    const prevMonth = new Date(nowPHT.getFullYear(), nowPHT.getMonth(), 0);
+    days += prevMonth.getDate();
+  }
+
+  if (months < 0) {
+    years--;
+    months += 12;
+  }
+
+  const hours = totalHours % 24;
+  const minutes = totalMinutes % 60;
+  const seconds = totalSeconds % 60;
+
+  // Plural & conditional display
+  const part = (n, word) => (n > 0 ? `${n} ${word}${n === 1 ? "" : "s"}` : "");
+  const parts = [part(years, "year"), part(months, "month"), part(days, "day")].filter(Boolean).join(", ");
+
+  document.getElementById("counter").textContent =
+    `${parts || "0 days"} (${totalDays} days total) ` +
+    `${String(hours).padStart(2, '0')}:` +
+    `${String(minutes).padStart(2, '0')}:` +
+    `${String(seconds).padStart(2, '0')} since first encounter`;
+}
+
+updateCounter();
+setInterval(updateCounter, 1000);
 
 
-    /* ------------------------------
-      ⏳ Counter: From October 05, 2025
-    ------------------------------ */
-    function updateCounter2() {
-      const startDate = new Date("2025-10-05T00:00:00+08:00");
-      const now = new Date();
-      const nowPHT = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Manila" }));
+/* ------------------------------
+   ⏳ Counter: From October 05, 2025
+------------------------------ */
+function updateCounter2() {
+  const startDate = new Date("2025-10-05T00:00:00+08:00");
+  const now = new Date();
+  const nowPHT = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Manila" }));
 
-      const diffMs = nowPHT - startDate;
-      const totalSeconds = Math.floor(diffMs / 1000);
-      const totalMinutes = Math.floor(totalSeconds / 60);
-      const totalHours = Math.floor(totalMinutes / 60);
-      const totalDays = Math.floor(totalHours / 24);
-      const totalYears = (totalDays / 365.25).toFixed(6);
+  const diffMs = nowPHT - startDate;
+  const totalSeconds = Math.floor(diffMs / 1000);
+  const totalMinutes = Math.floor(totalSeconds / 60);
+  const totalHours = Math.floor(totalMinutes / 60);
+  const totalDays = Math.floor(totalHours / 24);
 
-      const hours = totalHours % 24;
-      const minutes = totalMinutes % 60;
-      const seconds = totalSeconds % 60;
+  // Calculate years, months, and days precisely
+  let years = nowPHT.getFullYear() - startDate.getFullYear();
+  let months = nowPHT.getMonth() - startDate.getMonth();
+  let days = nowPHT.getDate() - startDate.getDate();
 
-      document.getElementById("counter2").textContent =
-        `${totalDays} days (${totalYears} years) ` +
-        `${String(hours).padStart(2, '0')}:` +
-        `${String(minutes).padStart(2, '0')}:` +
-        `${String(seconds).padStart(2, '0')} from October 05, 2025`;
-    }
-    updateCounter2();
-    setInterval(updateCounter2, 1000);
+  if (days < 0) {
+    months--;
+    const prevMonth = new Date(nowPHT.getFullYear(), nowPHT.getMonth(), 0);
+    days += prevMonth.getDate();
+  }
+
+  if (months < 0) {
+    years--;
+    months += 12;
+  }
+
+  const hours = totalHours % 24;
+  const minutes = totalMinutes % 60;
+  const seconds = totalSeconds % 60;
+
+  // Plural & conditional display
+  const part = (n, word) => (n > 0 ? `${n} ${word}${n === 1 ? "" : "s"}` : "");
+  const parts = [part(years, "year"), part(months, "month"), part(days, "day")].filter(Boolean).join(", ");
+
+  document.getElementById("counter2").textContent =
+    `${parts || "0 days"} (${totalDays} days total) ` +
+    `${String(hours).padStart(2, '0')}:` +
+    `${String(minutes).padStart(2, '0')}:` +
+    `${String(seconds).padStart(2, '0')} since October 05, 2025`;
+}
+
+updateCounter2();
+setInterval(updateCounter2, 1000);
+
 
 
     /* ------------------------------
@@ -1173,4 +1306,3 @@
 
 </body>
 </html>
-
