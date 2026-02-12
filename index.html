@@ -4,437 +4,114 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Poem Hehe Collection</title>
+  <link rel="stylesheet" href="./assets/style.css">
   <link rel="icon" type="image/png" href="./assets/logo.png">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background: linear-gradient(180deg, #000, #111);
-      font-family: 'Inter', sans-serif;
-      color: #fff;
-    }
-
-    h1, h2 {
-      font-family: 'Playfair Display', serif;
-    }
-
-    /* Counter */
-    .date-counter,  .date-counter2{
-      margin: 30px auto;
-      font-size: 1rem;
-      color: #fff;
-      text-align: center;
-      padding: 14px 26px;
-      border-radius: 14px;
-      background: rgba(0, 0, 0, 0.4); /* darker glass for contrast */
-      backdrop-filter: blur(10px) saturate(180%);
-      -webkit-backdrop-filter: blur(10px) saturate(180%);
-      max-width: max-content;
-      font-family: 'Courier New', monospace;
-      letter-spacing: 1px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5),
-                  inset 0 0 8px rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      animation: counterPulse 4s infinite ease-in-out;
-    }
-
-    /* Subtle breathing glow */
-    @keyframes counterPulse {
-      0%, 100% { text-shadow: 0 0 6px rgba(0, 255, 200, 0.6); }
-      50% { text-shadow: 0 0 14px rgba(0, 255, 200, 0.9); }
-    }
-    
-
-    /* Hero Section */
-    .intro-hero {
-      padding: 100px 20px;
-      text-align: center;
-    }
-
-    .intro-hero__content h1 {
-      font-size: 3.2rem;
-      margin-bottom: 20px;
-      color: #fff;
-    }
-
-    .intro-hero__content p {
-      font-size: 1rem;
-      max-width: 750px;
-      margin: 0 auto;
-      color: #bbb;
-    }
-
-    .scroll-text {
-      margin-top: 20px;
-      font-size: 0.95rem;
-      color: #888;
-      letter-spacing: 0.5px;
-    }
-
-    /* Poem Sections */
-    .section {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 40px;
-      padding: 60px 40px;
-      min-height: 100vh;
-      flex-wrap: wrap;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s ease-out;
-    }
-
-    .section.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .reverse {
-      flex-direction: row-reverse;
-    }
-
-    .image-container {
-      flex: 1;
-      max-width: 500px;
-    }
-
-    .image-container img {
-      width: 100%;
-      max-width: 500px; /* keeps them from going too wide */
-      height: auto; /* keeps natural proportions */
-      border-radius: 16px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-      transition: transform 0.4s ease;
-    }
-
-    .image-container img:hover {
-      transform: scale(1.03);
-    }
-
-    .text-container {
-      flex: 1;
-      max-width: 500px;
-    }
-
-    .text-container h2 {
-      font-size: 2rem;
-      margin-bottom: 15px;
-    }
-
-    .text-container p {
-      font-size: 0.95rem;
-      line-height: 1.5;
-      color: #ccc;
-    }
-
-    @media (max-width: 768px) {
-      .section, .reverse {
-        flex-direction: column;
-        text-align: center;
-      }
-      .image-container img {
-        max-width: 100%;
-        height: auto;
-      }
-    }
-
-    /* Animated Flower Divider */
-    .section-divider {
-      display: flex;
-      justify-content: center;
-      gap: 5px;
-      padding: 10px 0;
-    }
-
-    .section-divider span {
-      font-size: 1.3rem;
-      color: #ffb6c1;
-      animation: spin 3.5s ease-in-out infinite;
-    }
-
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); opacity: 0.8; }
-      50% { transform: translateY(-5px); opacity: 1; }
-    }
-
-    /* Footer */
-    .site-footer {
-      text-align: center;
-      padding: 40px 20px;
-      background-color: #000;
-      border-top: 1px solid #222;
-      color: #888;
-      font-size: 0.9rem;
-    }
-
-    .site-footer p {
-      margin: 6px 0;
-    }
-
-    .petal-container {
-      position: fixed;
-      top: -20px;
-      pointer-events: none;
-      z-index: 9999;
-      animation: fall linear forwards;
-    }
-
-    .petal {
-      display: inline-block;
-      animation: sway ease-in-out infinite;
-    }
-
-    @keyframes fall {
-      0% {
-        transform: translateY(-20px);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(110vh);
-        opacity: 0.8;
-      }
-    }
-
-    @keyframes sway {
-      0%, 100% { transform: translateX(0px) rotate(0deg); }
-      50% { transform: translateX(15px) rotate(15deg); }
-    }
-
-    .spotify-feature {
-      margin: 2rem auto;
-      max-width: 800px;
-      text-align: center;
-      padding: 1.5rem;
-      border-radius: 16px;
-      background: #121212;
-      color: #fff;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    }
-
-    .spotify-feature h2 {
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .spotify-feature p {
-      margin-bottom: 1rem;
-      font-size: 1rem;
-      color: #b3b3b3;
-    }
-    /* Table of Contents */
-    .toc {
-      position: relative;
-      margin: 40px auto;
-      max-width: 800px;
-      padding: 25px 30px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(10px);
-      border-radius: 18px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .toc:hover {
-      transform: scale(1.02);
-      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-    }
-
-    .toc h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      text-align: center;
-      color: #ff99c8;
-      position: relative;
-    }
-
-    .toc h2::after {
-      content: "";
-      position: absolute;
-      right: -25px;
-      font-size: 1.5rem;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #ffb6c1;
-    }
-
-    .toc ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 12px;
-    }
-
-    .toc li {
-      background: rgba(255,255,255,0.05);
-      border-radius: 12px;
-      padding: 10px 15px;
-      transition: background 0.3s ease, transform 0.3s ease;
-    }
-
-    .toc li:hover {
-      background: rgba(255,182,193,0.15);
-      transform: translateX(5px);
-    }
-
-    .toc a {
-      text-decoration: none;
-      color: #eee;
-      font-size: 0.95rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: color 0.3s ease;
-    }
-
-    .toc a:hover {
-      color: #ff69b4;
-    }
-
-    .toc a::before {
-      content: "✿";
-      font-size: 0.9rem;
-      color: #ffb6c1;
-      transition: transform 0.3s ease;
-    }
-
-    .toc li:hover a::before {
-      transform: rotate(20deg) scale(1.2);
-    }
-
-    #monthsary {
-      display: none; /* hidden by default */
-      font-size: 1.8rem;
-      font-weight: 700;
-      text-align: center;
-      margin: 25px auto;
-      padding: 18px 28px;
-      border-radius: 16px;
-      background: rgba(255, 182, 193, 0.15); /* glassy pink */
-      backdrop-filter: blur(12px) saturate(180%);
-      -webkit-backdrop-filter: blur(12px) saturate(180%);
-      color: #fff;
-      letter-spacing: 1px;
-      text-shadow: 0 0 8px rgba(255, 150, 200, 0.9);
-      box-shadow: 0 8px 30px rgba(255, 100, 150, 0.3),
-                  inset 0 0 12px rgba(255, 200, 220, 0.2);
-      border: 1px solid rgba(255, 200, 220, 0.4);
-      max-width: max-content;
-      animation: fadeInUp 1s ease, glowPulse 3s infinite ease-in-out;
-    }
-
-    /* Smooth entrance */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px) scale(0.95); }
-      to   { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    /* Subtle glowing effect */
-    @keyframes glowPulse {
-      0%, 100% { box-shadow: 0 0 20px rgba(255, 150, 200, 0.6); }
-      50% { box-shadow: 0 0 40px rgba(255, 180, 220, 0.9); }
-    }
-    
-
-    .back-to-toc {
-      position: fixed;
-      bottom: 18px;
-      right: 18px;
-      width: 32px;
-      height: 32px;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 0.9rem; /* smaller emoji */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      background: rgba(117, 96, 96, 0.85); /* modern glass pink */
-      backdrop-filter: blur(5px);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-      opacity: 0;
-      transform: translateY(8px);
-      pointer-events: none;
-      transition: all 0.25s ease;
-      z-index: 1000;
-    }
-
-    .back-to-toc.show {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-
-    .back-to-toc:hover {
-      background: rgba(255, 105, 180, 1);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      transform: translateY(-1px) scale(1.05);
-    }
-
-  </style>
 </head>
 
 <body>
 
   <div id="monthsary" class="monthsary-counter"></div>
   
-  <!-- Hero Section -->
+
   <section class="intro-hero">
+    <div class="sakura-branch hero-branch-right">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path d="M0,100 C20,80 40,90 60,40 C70,20 90,10 100,0" stroke="rgba(255, 183, 197, 0.7)" fill="transparent" stroke-width="0.8"/>
+        <circle cx="60" cy="40" r="1.5" fill="#ffb7c5" />
+        <circle cx="80" cy="20" r="1" fill="#ffb7c5" />
+        <circle cx="45" cy="65" r="1.2" fill="#ffb7c5" opacity="0.6"/>
+      </svg>
+    </div>
+
+    <div class="sakura-branch hero-branch-left">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path d="M100,100 C80,80 60,90 40,40 C30,20 10,10 0,0" stroke="rgba(255, 183, 197, 0.6)" fill="transparent" stroke-width="0.8"/>
+        <circle cx="40" cy="40" r="1.5" fill="#ffb7c5" />
+        <circle cx="20" cy="20" r="1" fill="#ffb7c5" />
+        <circle cx="55" cy="75" r="1.3" fill="#ffb7c5" opacity="0.5"/>
+      </svg>
+    </div>
+
+    <div class="sakura-branch hero-branch-bottom">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path d="M0,0 C20,20 50,10 100,60" stroke="rgba(255, 183, 197, 0.5)" fill="transparent" stroke-width="0.7"/>
+        <circle cx="30" cy="15" r="1.2" fill="#ffb7c5" opacity="0.4"/>
+      </svg>
+    </div>
+
+    <div class="sakura-branch hero-branch-bottom reverse-branch">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path d="M0,0 C20,20 50,10 100,60" stroke="rgba(255, 183, 197, 0.5)" fill="transparent" stroke-width="0.7"/>
+        <circle cx="30" cy="15" r="1.2" fill="#ffb7c5" opacity="0.4"/>
+      </svg>
+    </div>
+
+    <div class="sakura-branch hero-branch-bottom reverse-branch-2">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path d="M0,0 C20,20 50,10 100,60" stroke="rgba(255, 183, 197, 0.5)" fill="transparent" stroke-width="0.7"/>
+        <circle cx="30" cy="15" r="1.2" fill="#ffb7c5" opacity="0.4"/>
+      </svg>
+    </div>
+
+    <div class="sakura-branch hero-branch-bottom reverse-branch-3">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path d="M0,0 C20,20 50,10 100,60" stroke="rgba(255, 183, 197, 0.5)" fill="transparent" stroke-width="0.7"/>
+        <circle cx="30" cy="15" r="1.2" fill="#ffb7c5" opacity="0.4"/>
+      </svg>
+    </div>
+    
+
     <div class="intro-hero__content">
-      <h1>Poem Hehe Collection</h1>
-      <p>These poems and illustrations are dedicated to my beautiful girl, Sharmaine Faith F. Vargas.</p><br />
-      <p class="scroll-text">Personally written and illustrated by Vener (Personal Poem Blog)</p>
+      <h1 class="main-title">Poem Hehe <span>Collection</span></h1>
+      
+      <div class="dedication">
+        <p>These poems and illustrations are dedicated to my beautiful girl,</p>
+        <p class="highlight-name">Sharmaine <span>Faith</span> F. Vargas</p>
+      </div>
+
+      <div class="signature">
+        <p class="scroll-text">Personally written and illustrated by Vener</p>
+        <span class="blog-tag">Personal Poem Blog</span>
+      </div>
     </div>
   </section>
-    <!-- Table of Contents -->
-  <nav class="toc">
-    <h2>Table of Contents</h2>
-    <ul>
-      <li><a href="#poem1">Buzzed</a></li>
-      <li><a href="#poem2">Sharmaine</a></li>
-      <li><a href="#poem3">Faith</a></li>
-      <li><a href="#poem4">You</a></li>
-      <li><a href="#poem5">She burns</a></li>
-      <li><a href="#poem6">The past with you</a></li>
-      <li><a href="#poem7">Good karma</a></li>
-      <li><a href="#poem8">Always be near</a></li>
-      <li><a href="#poem9">Spring Flower</a></li>
-      <li><a href="#poem10">Nudols</a></li>
-      <li><a href="#poem11">Happiest poet</a></li>
-      <li><a href="#poem12">Four-leaf clover</a></li>
-      <li><a href="#poem13">Peyt</a></li>
-      <li><a href="#poem14">Tree of love</a></li>
-      <li><a href="#poem15">Envy</a></li>
-      <li><a href="#poem16">Fries</a></li>
-      <li><a href="#poem17">10-05</a></li>
-      <li><a href="#poem18">Her Hates</a></li>
-      <li><a href="#poem19">My Muse</a></li>
-      <li><a href="#poem20">His Hates</a></li>
-      <li><a href="#poem21">I love us by Vener</a></li>
-      <li><a href="#poem22">I love us by Peyt</a></li>
-      <li><a href="#poem23">The Trajectory</a></li>
-      <li><a href="#poem24">Favoring lost</a></li>
-      <li><a href="#poem25">Steadfast Journey</a></li>
-      <li><a href="#poem26">Cards Were Lying</a></li>
-      <li><a href="#spotify-section">🎵 Playlist Hehe</a></li>
-    </ul>
-  </nav>
 
+
+  <section class="toc-wrapper">
+    <nav class="toc">
+      <h2>Table of Contents</h2>
+      <ul>
+        <li><a href="#poem1">Buzzed</a></li>
+        <li><a href="#poem2">Sharmaine</a></li>
+        <li><a href="#poem3">Faith</a></li>
+        <li><a href="#poem4">You</a></li>
+        <li><a href="#poem5">She burns</a></li>
+        <li><a href="#poem6">The past with you</a></li>
+        <li><a href="#poem7">Good karma</a></li>
+        <li><a href="#poem8">Always be near</a></li>
+        <li><a href="#poem9">Spring Flower</a></li>
+        <li><a href="#poem10">Nudols</a></li>
+        <li><a href="#poem11">Happiest poet</a></li>
+        <li><a href="#poem12">Four-leaf clover</a></li>
+        <li><a href="#poem13">Peyt</a></li>
+        <li><a href="#poem14">Tree of love</a></li>
+        <li><a href="#poem15">Envy</a></li>
+        <li><a href="#poem16">Fries</a></li>
+        <li><a href="#poem17">10-05</a></li>
+        <li><a href="#poem18">Her Hates</a></li>
+        <li><a href="#poem19">My Muse</a></li>
+        <li><a href="#poem20">His Hates</a></li>
+        <li><a href="#poem21">I love us by Vener</a></li>
+        <li><a href="#poem22">I love us by Peyt</a></li>
+        <li><a href="#poem23">The Trajectory</a></li>
+        <li><a href="#poem24">Favoring lost</a></li>
+        <li><a href="#poem25">Steadfast Journey</a></li>
+        <li><a href="#poem26">Cards Were Lying</a></li>
+        <li class="playlist-item"><a href="#spotify-section">🎵 Playlist Hehe</a></li>
+      </ul>
+    </nav>
+  </section>
   <!-- Divider -->
   <div class="section-divider">
     <span>✿</span>
