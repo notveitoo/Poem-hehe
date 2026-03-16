@@ -611,37 +611,102 @@ h1, h2 {
   
   transition: transform 0.3s ease;
 }
+/* --- Modern Dark Video Section Styles --- */
+
+:root {
+  --glow-color: rgba(255, 183, 197, 0.15);
+  --glow-hover: rgba(255, 183, 197, 0.3);
+  --bg-dark: #0a0a0a;
+}
+/* --- Aesthetic 3:2 Ratio Video (Modern Style) --- */
+
+.video-section.dark-theme {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+  width: 100%;
+  overflow: hidden; 
+}
+
+/* Glassmorphism Wrapper - The Frame */
+.dark-video-wrapper {
+  position: relative;
+  display: inline-flex; 
+  padding: 8px; /* Slightly thicker for the glass look */
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+}
+
+.video-container {
+  position: relative;
+  /* Responsive Width */
+  width: 88vw; 
+  max-width: 500px; /* Slightly narrower max-width to keep the 3:2 look tight */
+  
+  /* THE RATIO: 1 to 1.5 is the same as 3:2 */
+  aspect-ratio: 3 / 2; 
+  
+  overflow: hidden;
+  border-radius: 22px;
+  background: #000;
+  
+  /* Initial state for JS reveal */
+  opacity: 0; 
+  transform: translateY(15px);
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
 
 .video-container video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  
+  /* CROPPING: Balances the visual weight to the left */
+  object-position: 35% 50%; 
+  
   display: block;
+  /* Aesthetic GIF grading */
+  filter: brightness(0.9) contrast(1.1) saturate(1.1);
 }
 
-/* Tablet Adjustments (Screens > 768px) */
+/* Subtle Gradient overlay for that "Premium GIF" feel */
+.video-glow-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom, 
+    rgba(255, 183, 197, 0.05) 0%, 
+    transparent 50%, 
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* --- Responsive Adjustments --- */
+
 @media (min-width: 768px) {
-  .video-section {
-    padding: 40px 0;
-  }
-  
   .video-container {
-    width: 70%;
-    aspect-ratio: 16 / 9; /* Switch to landscape if your video is wide */
-    height: 350px; /* Or keep a fixed height for a cinematic bar look */
+    width: 70vw;
+    max-width: 550px;
   }
 }
 
-/* Desktop Adjustments (Screens > 1024px) */
 @media (min-width: 1024px) {
-  .video-container {
-    max-width: 500px; /* Slightly larger on PC */
-    height: 320px;
-    aspect-ratio: unset; /* Let height take over */
+  .video-section.dark-theme {
+    padding: 60px 0;
   }
-  
-  /* Subtle hover effect for PC users */
-  .video-container:hover {
-    transform: scale(1.02);
+
+  /* Interaction for Mouse Users */
+  .dark-video-wrapper:hover {
+    transform: translateY(-8px);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 
+                0 0 25px rgba(255, 183, 197, 0.15);
   }
 }

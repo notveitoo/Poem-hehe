@@ -282,3 +282,19 @@ const initVideoScroll = () => {
 
 // Run after DOM is loaded
 document.addEventListener('DOMContentLoaded', initVideoScroll);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const video = document.querySelector('.dark-video-wrapper video');
+    if (!video) return;
+
+    // Optional: Subtle pulse effect to the glow on scroll
+    window.addEventListener('scroll', () => {
+        const scrollPos = window.scrollY;
+        const container = document.querySelector('.video-container');
+        if (container) {
+            // Glow pulses slightly as you scroll
+            const opacity = 0.15 + (Math.sin(scrollPos / 100) * 0.05);
+            container.style.boxShadow = `0 10px 40px rgba(0,0,0,0.8), 0 0 30px rgba(255,183,197,${opacity})`;
+        }
+    });
+});
